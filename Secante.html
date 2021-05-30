@@ -1,0 +1,149 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METODOS NUMERICOS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!--FONT BEBAS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+    <!--ESTILOS CSS-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <nav class= "nav-main">
+            <img src="img/logo UMG.jpg"alt="METODOS NUMERICOS"class="nav-logo UMG">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Metodos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="Newton-raphson.html">Newton-Raphson</a></li>
+                          <li><a class="dropdown-item" href="Secante.html">Secante</a></li>
+                          <li><a class="dropdown-item" href="Muller.html">Muller</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Informacion_estudiante.html">Información del Estudiante</a>
+                      </li>
+                </ul>
+        </nav>
+        </div>
+      </nav>
+        <hr>
+        <header class="showcase_secante">
+        <h2>METODO DE LA SECANTE</h2>
+        <br>
+            <p>
+                La recta secante es una recta que corta a una circunferencia en dos puntos. Conforme estos puntos de corte se acercan, dicha recta se aproxima a un punto y, cuando solo existe un punto que toca la circunferencia, se le llama tangente.
+            </p>
+            <br>
+            <h4>COMO SE UTILIZA EL METODO?</h4> 
+            <p>
+                En análisis numérico el método de la secante es un método para encontrar los ceros de una función de forma iterativa.
+                El método se basa en obtener la ecuación de la recta a la cual se le conoce como secante por cortar la gráfica de la función. Posteriormente se escoge como siguiente elemento de la relación de recurrencia, xn+1, la intersección de la recta secante con el eje de abscisas obteniendo la fórmula.	
+                Este método, a diferencia del de bisección y regla falsa, casi nunca falla ya que solo requiere de 2 puntos al principio, y después el mismo método se va retroalimentando. Lo que hace básicamente es ir tirando rectas secantes a la curva de la ecuación que se tiene originalmente, y va checando la intersección de esas rectas con el eje de las X para ver si es la raíz que se busca.
+                El método de la secante parte de dos puntos (y no sólo uno como el método de Newton) y estima la tangente (es decir, la pendiente de la recta) utilizando la aproximación:
+                <img src="img/formula_secante.png" class="img-secante">
+            </p>
+            <br>
+            <h4>ALGORITMO</h4> 
+            <p>
+                ENTRADA: Aproximaciones iniciales p0 y p1; Tolerancia TOL Cantidad máxima de iteraciones IT SALIDA: Solución aproximada p o mensaje de fracaso  <br>
+HACER i = 2  <br>
+q0 = f(p0)  <br>
+q1 = f(p1)  <br>
+MIENTRAS i <= IT REPETIR <br>
+ HACER p = p1 – q1(p1 – p0) / (q1 – q0) <br>
+SI |(p – p1)/p| < TOL ENTONCES <br>
+SALIDA(p) <br>
+PARAR FIN SI … ENTONCES <br>
+HACER i = i + 1 <br>
+HACER p0 = p1 <br>
+HACER q0 = q1 <br>
+HACER p1 = p <br>
+HACER q1 = f(p) <br>
+FIN MIENTRAS <br>
+SALIDA (“El método falló después de IT iteraciones”) <br>
+PARAR <br>
+            </p>
+            <h4>VENTAJAS</h4>
+            <div align="left">
+            <p>
+                <li>Se puede aplicar cuando la función f(x) es demasiado compleja como para obtener su derivada. </li>
+                <li>A pesar de necesitar de dos puntos de partida, pueden ser aleatorios y no necesariamente tiene que haber cambio de signo entre ellos.</li>
+                <li>Converge más rápido que los métodos lineales.</li>  
+            </p>
+          </div>
+            <br>
+            <h4>DESVENTAJAS</h4>
+            <div align="left">
+            <p>
+                <li>No siempre converge ya que puede ocurrir que la secante produzca divergencia.</li>
+                <li>No converge más rápido que los métodos cuadráticos.</li>
+            </p>
+          </div>
+          <br>
+            <h4 >EJEMPLO #1</h4>
+        <p>
+            Hallar por el método de la secante la raíz de la siguiente función f(x)= x^3 - 2x^2 - x + 2 partiendo de P0=0 y P1=1.5 con una tolerancia de 10^-5
+        </p>
+        <h4>Solución en C++</h4>
+        <p>
+            <img src="img/ejemplo1_seecante.png" class="img-ejemplo1-secante"><br>
+            <p><img src="img/ejemplo1_grafica1Secante.png"class="img-grafica1-secante">como se puede observar en la gráfica elegimos dos puntos en los cuales en medio se encuentra la raíz por lo que la respuesta se consigue en 7 iteraciones en el punto P=1. La respuesta es con 10 decimales.</p>
+        </p>
+        <br>
+        <h4 >EJEMPLO #2</h4>
+        <p>
+            Hallar por el método de la secante la raíz de la función f(x)= x^3 + x +16 partiendo de los puntos P0=-3 y P1=-2 con una tolerancia de 10^-5.
+        </p>
+        <h4>Solución en C++</h4>
+        <p>
+          <img src="img/ejemplo2_secante.png" class="img-ejemplo2-secante"><br>
+          <img src="img/ejemplo2_grafica2Secante.png"class="img-grafica2-secante">
+      </p>
+      <h4>EJEMPLO #3</h4>
+        <p>
+            Jallar por el método de la secante la raíz de la función f(x)=-2.5x^3 + 17x^2 - 22x - 11 partiendo de los puntos P0=-1 y P1=0. Con una toleracia de 10^-10.
+        </p>
+        <h4>Solución en C++</h4>
+        <p>
+          <img src="img/ejemplo3_secante.png" class="img-ejemplo3-secante"><br>
+          <img src="img/ejemplo3_grafica3Secante.png"class="img-grafica3-secante">
+      </p>
+      <h4>Implementación del método en C++ Y MATLAB</h4>
+      <p >
+          Este código esta implementado para utilizarlo en visual basic 2017 en el lenguaje de programación C++. Tiene una precisión de 10 decimales.
+      </p>
+      <div align="left">
+      <a href="MetodosC++/Metodo_dela_secante.cpp" download="Secante.cpp" class="btn btn-outline-success mt-2 header-btn">DESCARGAR CÓDIGO C++</a>
+      <a href="Matlab/Metodo_dela_secante.m" download="Secante.m" class="btn btn-outline-success mt-2 header-btn">DESCARGAR CÓDIGO MATLAB</a>
+    </div>
+      <br>
+      <h4 >ENLACES DE REFERENCIA</h4>
+      <div align="left">
+      <p>
+          Encuentre los links para que les sirva de referencia por alguna consulta con el desarrollo del método.
+
+          <a href="https://sites.google.com/site/procesosnumericoseafit20142/metodo-de-la-secante" target="_blank">
+      <li>https://sites.google.com/site/procesosnumericoseafit20142/metodo-de-la-secante</li> 
+  </a>
+  <a href="https://reynacampos.wordpress.com/2014/03/19/metodo-de-la-secante/#:~:text=Antecedentes%20del%20M%C3%A9todo%20de%20la,la%20ecuaci%C3%B3n%20de%20cuarto%20grado." target="_blank">
+      <li>https://reynacampos.wordpress.com/2014/03/19/metodo-de-la-secante/#:~:text=Antecedentes%20del%20M%C3%A9todo%20de%20la,la%20ecuaci%C3%B3n%20de%20cuarto%20grado.</li> 
+  </a>
+  <a href="https://conzmr.wordpress.com/2017/05/08/metodo-de-la-secante/" target="_blank">
+      <li>https://conzmr.wordpress.com/2017/05/08/metodo-de-la-secante/</li> 
+  </a>
+      </p>
+        </header>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>

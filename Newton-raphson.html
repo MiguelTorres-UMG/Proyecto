@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METODOS NUMERICOS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!--FONT BEBAS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+    <!--ESTILOS CSS-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <nav class= "nav-main">
+            <img src="img/logo UMG.jpg"alt="METODOS NUMERICOS"class="nav-logo UMG">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Metodos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="Newton-raphson.html">Newton-Raphson</a></li>
+                          <li><a class="dropdown-item" href="Secante.html">Secante</a></li>
+                          <li><a class="dropdown-item" href="Muller.html">Muller</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Informacion_estudiante.html">Información del Estudiante</a>
+                      </li>
+                </ul>
+        </nav>
+        </div>
+      </nav>
+        <hr>
+        <header class="showcase_newton">
+        <h2>METODO DE NEWTON RAPHSON</h2> 
+        <br>
+        <h4>Historia</h4>
+        <p>
+            El método de Newton-Raphson es llamado así por el matemático inglés Joseph Raphson (contemporáneo de Newton) se hizo miembro de la Royal Society en 1691 por su libro Aequationum Universalis, publicado en 1690, que contenía este método para aproximar raíces. Newton en su libro Método de las fluxiones describe el mismo método, en 1671, pero no fue publicado hasta 1736, lo que significa que Raphson había publicado este resultado 46 años antes. Aunque no fue tan popular como los trabajos de Newton, se le reconoció posteriormente.
+        </p>
+        <h4>COMO SE UTILIZA EL METODO?</h4> 
+        <p>
+            El método de Newton Raphson es un procedimiento algorítmico que permite hallar raíces de funciones, conocido un valor numérico cercano a la raíz. Es un método abierto e iterativo, en general de rápida convergencia, muy útil para el cálculo de raíces cuadradas y de mayor grado, aunque para algunos casos el método presenta inconvenientes, por ejemplo, si existen raíces múltiples, en este caso se tendría que aplicar diferentes soluciones para así lograr encontrar la raíz sin abandonar el método.
+En general, como en todos los métodos numéricos abiertos, el método de Newton-Raphson busca una raíz dada, una función f(x), un valor inicial y un número de iteraciones. Para tener en cuenta, no es necesario tener un intervalo.	
+Al método se le ingresa: <br>
+
+•	Una función F(x) <br>
+•	un valor inicial <br>
+•	Una tolerancia <br>
+•	número "n" de iteraciones <br>
+
+El método usa la siguiente serie: <br>
+<img src="img/formula_newton.png" class="img-newton">
+        </p>
+        <br>
+        <p>
+            con el fin de hallar el nuevo valor, el cual se reemplaza en la función y su respectiva derivada
+El método pide la derivada de la función f(x); esto puede ser un inconveniente ya que la derivada puede ser de un grado de complejidad alto y además si esta tiende a 0 el método se hace cada vez más lento.	
+El método se para cuando la tolerancia es mayor que el error.
+        </p>
+        <h4>ALGORITMO</h4> 
+        <div align="left">
+        <P >
+            ENTRADA: <br>
+Aproximación inicial p0; tolerancia TOL; cantidad máxima de iteraciones IT. <br>
+SALIDA: <br>
+Solución aproximada p o mensaje de fracaso. <br>
+HACER i = 1 <br>
+MIENTRAS i <= IT HACER LOS PASOS 1 AL 5 PASO <br>
+1: HACER p = p0 – (f(p0) / f’(p0)) <br>
+PASO 2: SI |(p – p0)/p| < TOL ENTONCES <br>
+ PASO 3: SALIDA(p) <br>
+   	   PARAR <br>
+PASO 4: HACER i = i + 1  <br>
+PASO 5: HACER p0 = p <br>
+FIN MIENTRAS <br>
+SALIDA (“El método fracasó o procedimiento terminado sin éxito”) <br>
+PARA R<br>
+        </P>
+    </div>
+        <br> 
+        
+        <h4>VENTAJAS</h4>
+        <div align="left">
+        <p>
+            <li>Convergencia muy rápida</li>
+        </p>
+    </div>
+    <br>
+        <h4>DESVENTAJAS</h4>
+        <div align="left">
+        <p>
+            <li>Inestable (No se garantiza la convergencia)</li>  
+            <li>La función debe de ser derivable y continua</li> 
+           <li>Se requiere conocer la primera derivada de la función</li> 
+        </p>
+    </div>
+        <br> 
+        <h4 >EJEMPLO #1</h4>
+        <p>
+            Sea f(x)=-x^3 - cos (x) utilizar el método de Newton-Raphson para encontrar la aproximación a la raíz utilizando un toleracia de 10^-5 y el punto inicial p0= -1. Derivada f'(x)= -3x^2 + sen (x).
+        </p>
+        <h4>Solución en C++</h4>
+        <p>
+            <img src="img/ejemplo1_newton.png" class="img-ejemplo1-newton"><br>
+            <p><img src="img/ejemplo1_grafica1Newton.png"class="img-grafica1-newton">como se puede observar en la gráfica elegimos un punto que estaba cerca de la raíz por lo que la respuesta se consigue en 4 iteraciones en el punto P0=-0.8654740331. La respuesta es con 10 decimales.</p>
+        </p>
+        <br>
+        <h4 >EJEMPLO #2</h4>
+        <p>
+            Sea f(x)= x^2 - 5x + 4 utilizar el método de Newton-Raphson para encontrar la aproximación a la raíz utilizando un toleracia de 10^-5 y el punto inicial p0= 6. Derivada f'(x)= 2x - 5.
+        </p>
+        <h4>Solución en C++</h4>
+        <p>
+            <img src="img/ejemplo2_newton.png" class="img-ejemplo2-newton">
+            <p><img src="img/ejemplo2_grafica2Newton.png"class="img-grafica2-newton">En esta ocasión como es una función cuadrática tiene 2 raices, pero como el método solo permite ingresar un punto se tendria que ingresar punto a punto para poder presentar las raices.</p>
+        </p>
+        <h4 >EJEMPLO #3</h4>
+        <p>
+            Sea f(x)= x^2 + x - 1 utilizar el método de Newton-Raphson para encontrar la aproximación a la raíz utilizando un toleracia de 10^-5 y el punto inicial p0= -1. Derivada f'(x)= 2x + 1.
+        </p>
+        <h4>Solución en C++</h4>
+        <p>
+            <img src="img/ejemplo3_newton.png" class="img-ejemplo3-newton">
+            <br>
+            <img src="img/ejemplo3_grafica3Newton.png"class="img-grafica3-newton">
+        </p>
+        <br>
+        <h4>Implementación del método en C++ Y MATLAB</h4>
+        <p >
+            Este código esta implementado para utilizarlo en visual basic 2017 en el lenguaje de programación C++. Tiene una precisión de 10 decimales.
+        </p>
+        <div align="left">
+        <a href="MetodosC++/MetodoNewtonRaphson.cpp" download="Newton.rar" class="btn btn-outline-success mt-2 header-btn">DESCARGAR CÓDIGO C++</a>
+        <a href="Matlab/Metodo_NewtonRaphson.m" download="Newton.m" class="btn btn-outline-success mt-2 header-btn">DESCARGAR CÓDIGO MATLAB</a>
+    </div>
+        <br>
+        <h4 >ENLACES DE REFERENCIA</h4>
+        <div align="left">
+        <p>
+            Encuentre los links para que les sirva de referencia por alguna consulta con el desarrollo del método.
+
+            <a href="http://personal.cimat.mx:8181/~julio/courses/progra01/clase18/MetododeNewtonRaphson.pdf" target="_blank">
+        <li>http://personal.cimat.mx:8181/~julio/courses/progra01/clase18/MetododeNewtonRaphson.pdf</li> 
+    </a>
+    <a href="https://www.youtube.com/watch?v=tX9ecFstUUk" target="_blank">
+        <li>https://www.youtube.com/watch?v=tX9ecFstUUk</li> 
+    </a>
+    <a href="https://arturoguillen90.wordpress.com/ecuaciones-no-lineales/newton-raphson/" target="_blank">
+        <li>https://arturoguillen90.wordpress.com/ecuaciones-no-lineales/newton-raphson/</li> 
+    </a>
+        </p>
+    </div>
+    </header>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>

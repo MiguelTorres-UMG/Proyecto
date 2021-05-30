@@ -1,0 +1,170 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METODOS NUMERICOS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!--FONT BEBAS-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rubik:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+    <!--ESTILOS CSS-->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <nav class= "nav-main">
+            <img src="img/logo UMG.jpg"alt="METODOS NUMERICOS"class="nav-logo UMG">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Metodos
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="Newton-raphson.html">Newton-Raphson</a></li>
+                          <li><a class="dropdown-item" href="Secante.html">Secante</a></li>
+                          <li><a class="dropdown-item" href="Muller.html">Muller</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Informacion_estudiante.html">Información del Estudiante</a>
+                      </li>
+                </ul>
+        </nav>
+        </div>
+      </nav>
+        <hr>
+        <header class="showcase_muller">
+        <h2>METODO DE MULLER</h2>
+        <br>
+        <h4>HISTORIA</h4>
+        <p>
+          Fue presentado en 1956 por el matemático estadounidense David E. Muller (1924-2008), en el entorno del creciente número de algoritmos numéricos que surgieron con la progresiva generalización del uso de los ordenadores.
+        </p>
+        <br>
+        <h4>COMO SE UTILIZA EL MÉTODO</h4>
+        <P>
+          Este método utilizado para encontrar raíces de ecuaciones con raíces múltiples, y consiste en obtener los coeficientes de la parábola que pasa por tres puntos elegidos [x0, f(x0)], [x1, f(x1)] y [x2, f(x2)]. Dichos coeficientes son sustituidos en la formula cuadrática para obtener el valor donde la parábola intersecta al eje X; es decir, la raíz estimada. La aproximación se puede facilitar, si se escribe la ecuación de la parábola en una forma conveniente. f2(x) = A(x – x2)2 + B(x – x2) + C 
+Una de las mayores ventajas de este método, es que al trabajar con la formula cuadrática es posible localizar tanto raíces reales, como raíces complejas.
+
+        </P>
+        <br>
+        <h4>BENEFICIOS DE UTILIZAR EL MÉTODO</h4> 
+        <p>
+          El método Muller, es uno de los métodos de búsqueda de raíces, como el método de bisección, el método Regula-Falsi, el método Secante, etc. que tiene ventajas tales como:
+          <li>La tasa de convergencia en el método de Muller es más alta que otros métodos. La tasa de convergencia en el método de Muller es 1.84, mientras que es 1.62 en el método secante y lineal y 1 tanto para el método Regula-falsi como para el método de bisección. La tasa de convergencia es cuánto nos acercamos a la raíz en cada paso. Entonces, el Método Muller es más rápido.</li>
+          <li>Como es más lento que Newton-Raphson, que tiene una tasa de convergencia de 2, pero el cálculo de derivado en cada paso es mejor en el método de Muller. Por lo tanto, el Método Muller es un método eficiente.</li> 
+        </p>
+        <br>
+        <h4>ALGORITMO</h4> 
+        <P>
+          ENTRADA: Aproximaciones x0, x1 y x2; Tolerancia TOL; Máximo de iteraciones IT <br>
+SALIDA: Solución aproximada p o mensaje de error. <br>
+h1 = x1 – x0 h2 = x2 – x1 <br>
+S1 = (f(x1) – f(x0)) / h1 <br>
+S2 = (f(x2) – f(x1)) / h2 <br>
+d = (S2 – S1) / (h2 + h1) <br>
+i = 3 <br>
+MIENTRAS i ≤ IT REPETIR <br>
+b = S2 + h2d D = (b2 – 4 f(x2)d)½ <br>
+SI |b – D| < |b + D| ENTONCES <br>
+E = b + D SI NO <br>
+E = b – D <br>
+FIN SI ENTONCES <br>
+h = -2f(x2) / E <br>
+p = x2 + h <br>
+SI |h| < TOL ENTONCES <br>
+SALIDA(p) <br>
+PARAR <br>
+FIN SI ENTONCES <br>
+x0 = x1 <br>
+x1 = x2 <br>
+x2 = p <br>
+h1 = x1 – x0 <br> 
+h2 = x2 – x1 <br>
+S1 = (f(x1) – f(x0)) / h1 <br>
+S2 = (f(x2) – f(x1)) / h2 d = (S2 – S1) / (h2 + h1) <br>
+ i = i+1 <br>
+FIN MIENTRAS <br>
+SALIDA (“El método falló después de IT iteraciones”) <br>
+PARAR <br>
+        </P>
+        <h4>VENTAJAS</h4>
+        <div align="left">
+        <p>
+            <li>Se puede aplicar cuando la función f(x) es demasiado compleja como para obtener su derivada</li>
+            <li>A pesar de necesitar de dos puntos de partida, pueden ser aleatorios y no necesariamente tiene que haber cambio de signo entre ellos.</li>
+            <li>Converge más rápido que los métodos lineales.</li>
+        </p>
+        </div>
+        <br>
+        <h4>DESVENTAJAS</h4>
+        <div align="left">
+        <p>
+            <li>No siempre converge ya que puede ocurrir que la secante produzca divergencia.</li>
+            <li>No converge más rápido que los métodos cuadráticos.</li>
+        </p>
+      </div>
+      <br>
+      <h4 >EJEMPLO #1</h4>
+      <p>
+          Encontrar por el método de Muller la raíz de la función P(x)= x^3 - 13x -12 en el intervalo [2,5], con una toleracia de 10^-10. 
+      </p>
+      <h4>Solución en C++</h4>
+        <p>
+            <img src="img/ejemplo1_muller.png" class="img-ejemplo1-muller"><br>
+            <p><img src="img/ejemplo1_grafica1Muller.png"class="img-grafica1-muller">En este ejemplo se utilizaron los puntos P0=2, P1=2.5 Y P3= 4.5 correspondientes al intervalo dado, y en efecto obtuvimos la respuesta en 8 iteraciones en el punto P=4 tal cual como se muestra en la gráfica</p>
+        </p>
+        <br>
+        <h4 >EJEMPLO #2</h4>
+      <p>
+         Sea P(X)= 2X^4 - 3X^3 + 3X - 4 = 0 Utilil método de Muller para calcular 1 de las 4 raices de P(X) con una toleracia de 10^-15 y con 100 iteraciones.
+      </p>
+      <h4>Solución en C++</h4>
+        <p>
+            <img src="img/ejemplo2_muller.png" class="img-ejemplo2-muller"><br>
+            <p><img src="img/ejemplo2_grafica2Muller.png"class="img-grafica2-muller">Para este ejercicio utilizamos los puntos P0=-2, P1=-1.5 y P2=-1 obteniendo la respuesta en 8 iteraciones en el punto P= -1.11990654885561</p>
+        </p>
+        <br>
+        <h4 >EJEMPLO #3</h4>
+        <p>
+           Considerar la función P(X)= x^5 - 10x^3 + 7x 6 = 0. Utilice el método de Muller para aproximar la raíz de la función P(X) en los siguentes valores iniciales:
+           <br>
+           •	P0=1, P1=1.5, P2=2 Con una tolerancia de 10^-15 <br>
+           •	P=0.35, P1=2.15, P2=3.55 con una tolerancia de 10^-15 <br>
+        </p>
+        <h4>Solución en C++</h4>
+        <p>
+          <img src="img/ejemplo3_muller.png" class="img-ejemplo3-muller"><br>
+          <img src="img/ejemplo3_1_muller.png" class="img-ejemplo3_1-muller"><br>
+          <p><img src="img/ejemplo3_grafica3Muller.png"class="img-grafica3-muller">Gráfica de la funci+on P(X) en donde se pueden observar 2 de las 5 raíces con las que cuenta. </p>
+      </p>
+      <h4>Implementación del método en C++ Y MATLAB</h4>
+      <p >
+          Este código esta implementado para utilizarlo en visual basic 2017 en el lenguaje de programación C++. Tiene una precisión de 15 decimales.
+      </p>
+      <div align="left">
+      <a href="MetodosC++/Metodo_Muller.cpp" download="Muller.cpp" class="btn btn-outline-success mt-2 header-btn">DESCARGAR CÓDIGO C++</a> 
+      <a href="Matlab/Metodo_Muller.m" download="Muller.cpp" class="btn btn-outline-success mt-2 header-btn">DESCARGAR CÓDIGO MATLAB</a>
+    </div>
+      <br>
+      <h4 >ENLACES DE REFERENCIA</h4>
+      <div align="left">
+      <p>
+          Encuentre los links para que les sirva de referencia por alguna consulta con el desarrollo del método.
+
+          <a href="https://mat156.wordpress.com/category/muller/" target="_blank">
+      <li>https://mat156.wordpress.com/category/muller/</li> 
+  </a>
+  <a href="https://es.it-brain.online/question/c-program-for-muller-method/" target="_blank">
+      <li>https://es.it-brain.online/question/c-program-for-muller-method/</li> 
+  </a>
+      </p>
+      </header>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</body>
+</html>

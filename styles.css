@@ -1,0 +1,174 @@
+body{
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'Karla', sans-serif;
+}
+
+a{
+    text-decoration: none ;
+}
+ul{
+    list-style: none;
+}
+.container{
+    width: 90%;
+    margin: auto;
+}
+/* Estilos de navegacion*/
+.nav-main{
+    font-size: 20px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    height: 60px;
+    padding: 20px 0;
+}
+.nav-logo{
+    width: 200px;
+}
+/*NAV LEFT*/
+
+.nav-main ul li{
+    padding: 10px;
+}
+.nav-main ul li a{
+    padding: 4px;
+}
+.nav-main ul li a:hover{
+border-bottom: 2px solid;
+}
+.nav-main ul.nav-menu{
+    margin:auto;
+}
+
+/*sub-menu*/
+.nav-main li:hover .dropdown-menu{
+    display: block;
+}
+
+/*showcase*/
+.showcase{
+    width: 100%;
+    height: 550px;
+    background-image: url(img/fondo2.jpeg);
+    color:white;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+/* Estilos Metodo de Newton*/
+.showcase_newton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+.img-newton{
+    width: 250px;
+    display: block;
+    margin: auto;
+}
+.img-ejemplo1-newton{
+    display: block;
+    margin: auto;
+}
+.img-grafica1-newton{
+    float: left;
+}
+.img-ejemplo2-newton{
+    display: block;
+    margin: auto;
+}
+.img-grafica2-newton{
+    float: left;
+}
+.img-ejemplo3-newton{
+    display: block;
+    margin: auto;
+}
+.img-grafica3-newton{
+    float: left;
+}
+/* Estilos Metodo De La Secante*/
+.showcase_secante{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+.img-secante{
+    width: 280px;
+    display: block;
+    margin: auto;
+}
+.img-ejemplo1-secante{
+    display: block;
+    margin: auto;
+}
+.img-grafica1-secante{
+    float: left;
+}
+.img-ejemplo2-secante{
+    display: block;
+    margin: auto;
+}
+.img-grafica2-secante{
+    float: left;
+}
+.img-ejemplo3-secante{
+    display: block;
+    margin: auto;
+}
+.img-grafica3-secante{
+    float: left;
+}
+
+/*Estilos Metodo de Muller*/
+.showcase_muller{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+}
+.img-ejemplo1-muller{
+    display: block;
+    margin: auto;
+}
+.img-grafica1-muller{
+    float: left;
+}
+.img-ejemplo2-muller{
+    display: block;
+    margin: auto;
+}
+.img-grafica2-muller{
+    float: left;
+}
+.img-ejemplo3-muller{
+    display: block;
+    margin: auto;
+}
+.img-ejemplo3_1-muller{
+    display: block;
+    margin: auto;
+}
+.img-grafica3-muller{
+    float: left;
+}
+/* INFORMACION DEL ESTUDIANTE */
+.bg{
+    background-image: url(img/estudiante222.2.jpg);
+    background-position: center center;
+    width: 400px; height: 400px;
+}
